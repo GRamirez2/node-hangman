@@ -2,5 +2,5 @@
 
 // ---------------File Notes---------------------------
 // * Needs to be a CONSTRUCTOR
-// contain all the MEHTODS to check the letters aguessed against the random word
+// contain all the MEHTODS to check the letters guessed against the random word
 // ----------------------------------------------------
