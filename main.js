@@ -12,6 +12,7 @@ var fs = require('fs')
 var game = require('./game.js');
 var letter = require('./letter.js');
 var word = require('./word.js');
+var letterFunc = letter.Letters.LetterCheck
 
 var time = new Date().toDateString();
 
@@ -21,13 +22,14 @@ var count = 15;
 var wordToGuess;
 var wordLength = 0;
 var showBlanks;
+var wordArray = [];
 
-// constructor for gamedata
-function GameData(wordToGuess, blanks, userGuess){
-    this.word = wordToGuess;
-    this.showBlanks = showBlanks;
-    this.userGuess = userGuess 
-};
+// // constructor for gamedata
+// function GameData(wordToGuess, blanks, userGuess){
+//     this.word = wordToGuess;
+//     this.showBlanks = showBlanks;
+//     this.userGuess = userGuess 
+// };
 
 // function that runs game
 function startGame (){
@@ -36,10 +38,12 @@ function startGame (){
     console.log('\n***** Hello and welcome to HANGMAN 10.16.GR, today is '+time+' *****\n\nThe words you will be trying to guess in this game are under the topic:\n\n"NAMES AND NICKNAMES FOR A RUSTIC OR COUNTRIFIED PERSON"\n(from the Dictionary of American Regional English)\n');
     // Print blanks on screen
     wordToGuess = game.wordList.wordChoice();
-    // console.log(wordToGuess)
+    console.log(wordToGuess)
     wordLength = wordToGuess.length
     // console.log(wordLength);
     // console.log('The word you are trying to guess has '+wordLength+' letters. Good Luck!')
+    wordArray = wordToGuess.split("");
+    // console.log(wordArray);
 
    for (var i = 0; i<wordToGuess.length; i++){
        blanks.push(" _ ");
@@ -54,10 +58,7 @@ userguess();
 }; /* END of startGame function */
 
 function userguess(){
-    console.log(count)
-    count --;
-    if (count === 13){
-
+                            
             inquirer.prompt({
 
                 name : "guess",
@@ -65,19 +66,26 @@ function userguess(){
 
             }).then(function(answer){
 
-                console.log(answer.guess);
-                // var tries = new constructor*********
-                // function Word(L,W,LetterFunction
+                        var userGuess = answer.guess.toLowerCase();
+                        console.log(userGuess);
+                        var test = letterFunc.check(userGuess,wordArray);
+                        console.log(test);
+                        console.log(LetterFunc);
 
-                })
-    } 
-        
-        else if (count == 0){
-            console.log("\n\nYOU LOST THIS GAME BECAUSE YOU ARE OUT OF TURNS. BETTER LUCK NEXT TIME")
-            return;
-        }
 
-userguess();
+                        })
+
+                    // else {
+                    //     console.log("\n\nYOU LOST THIS GAME BECAUSE YOU ARE OUT OF TURNS. BETTER LUCK NEXT TIME")
+                    //     return;
+                    // }
+            
+            // if (count > 13){ 
+            // }else{
+            //     console.log("\nCareful, your selection was not a letter. That cost you a turn.\n")
+            //     count --;
+            //      userguess();
+            // }
 
 }/**end of userguess */
 
