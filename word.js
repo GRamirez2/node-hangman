@@ -11,12 +11,12 @@ function CorrectGuess(){
 
             for (var i = 0; i < wordArray.length; i++) {
                 
-                    if(wordArray[i] === userGuess){
+                    if(userGuess === wordArray[i]){
                        blanks.splice(i,1,userGuess)
-                       return blanks.join("");
+                    //    console.log(blanks.join(""));
                     
                     }
-            } 
+            }return blanks.join(""); 
             
     }
 };

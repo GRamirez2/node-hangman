@@ -24,6 +24,7 @@ var wordToGuess;
 var wordLength = 0;
 var showBlanks;
 var wordArray = [];
+var wrongGuess = []
 
 // // constructor for gamedata
 // function GameData(wordToGuess, blanks, userGuess){
@@ -72,9 +73,10 @@ function userguess(){
                         var test = letterFunc.check(userGuess,wordArray);
                         // console.log(test);
                              if (test){
-                                   
+                                    count --;
                                     showBlanks = arrayFunc.newBlanks(userGuess,blanks,wordArray); 
-                                    console.log(showBlanks)
+                                    // console.log(showBlanks)
+                                    console.log(count + " Tries remaining.")
                                  
                                 //  print new array to screen
                                 // check to see if they won
@@ -82,7 +84,14 @@ function userguess(){
                                 // check to see if they have turn remaining
                                 userguess();
                              }else{
-                                 console.log("That letter is not in the word")
+                                 count --;
+                                 wrongGuess.push(userGuess);
+                                 console.log("");
+                                 console.log("Try again")
+                                 console.log("");
+                                 console.log("Wrong guesses include: "+ wrongGuess)
+                                 console.log(count + " Tries remaining.")
+                                 userguess();
                                 }
                                 // if not print how many turn remaining
                                 // print a list of worng guesses
