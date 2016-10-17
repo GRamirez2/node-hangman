@@ -13,6 +13,7 @@ var game = require('./game.js');
 var letter = require('./letter.js');
 var word = require('./word.js');
 var letterFunc = letter.Letters.LetterCheck
+var arrayFunc = word.blanks.UpdatedBlanks
 
 var time = new Date().toDateString();
 
@@ -67,10 +68,24 @@ function userguess(){
             }).then(function(answer){
 
                         var userGuess = answer.guess.toLowerCase();
-                        console.log(userGuess);
+                        // console.log(userGuess);
                         var test = letterFunc.check(userGuess,wordArray);
-                        console.log(test);
-                        console.log(LetterFunc);
+                        // console.log(test);
+                             if (test){
+                                   
+                                    showBlanks = arrayFunc.newBlanks(userGuess,blanks,wordArray); 
+                                    console.log(showBlanks)
+                                 
+                                //  print new array to screen
+                                // check to see if they won
+                                // pring how many turns remaining
+                                // check to see if they have turn remaining
+                                userguess();
+                             }else{
+                                 console.log("That letter is not in the word")
+                                }
+                                // if not print how many turn remaining
+                                // print a list of worng guesses
 
 
                         })
