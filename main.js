@@ -12,13 +12,24 @@ var fs = require('fs')
 var game = require('./game.js');
 var letter = require('./letter.js');
 var word = require('./word.js');
+
 var time = new Date().toDateString();
+
+// globals
 var blanks = [];
 var count = 15;
 var wordToGuess;
 var wordLength = 0;
 var showBlanks;
 
+// constructor for gamedata
+function GameData(wordToGuess, blanks, userGuess){
+    this.word = wordToGuess;
+    this.showBlanks = showBlanks;
+    this.userGuess = userGuess 
+};
+
+// function that runs game
 function startGame (){
 
     // Print instructions on screen
@@ -39,25 +50,34 @@ function startGame (){
     // console.log(blanks)
     // console.log('\n'+showBlanks+'\n');
 
-userguess(count);
+userguess();
 }; /* END of startGame function */
 
-function userguess(count){
-    if (count > 0){
+function userguess(){
+    console.log(count)
+    count --;
+    if (count === 13){
 
-        inquirer.prompt({
+            inquirer.prompt({
 
-            name : "guess",
-            message : "The word you are trying to guess has "+wordLength+" letters.\n\n"+showBlanks+"\n\n\nGUESS A LETTER"
+                name : "guess",
+                message : "The word you are trying to guess has "+wordLength+" letters.\n\n"+showBlanks+"\n\n\nGUESS A LETTER"
 
-        })
+            }).then(function(answer){
+
+                console.log(answer.guess);
+                // var tries = new constructor*********
+                // function Word(L,W,LetterFunction
+
+                })
+    } 
         
-    };
+        else if (count == 0){
+            console.log("\n\nYOU LOST THIS GAME BECAUSE YOU ARE OUT OF TURNS. BETTER LUCK NEXT TIME")
+            return;
+        }
 
-    if (count == 0){
-        console.log("SORRY MY FRIEND YOU ARE OUT OF TURNS. BETTER LUCK NEXT TIME")
-        return;
-    }
+userguess();
 
 }/**end of userguess */
 
