@@ -21,16 +21,16 @@ function CorrectGuess(){
     },
 
     this.alreadyGuessed = function(userGuess, two){
-            for (var i = 0; i < two; i++){
-                if (userGuess === two[i]){
-                    
-                    return true;
-                }
+        for (var i = 0; i < two.length; i++){
+            if (userGuess === two[i]){
+                
+                return true;
+            }
         }
         // return two[i];
         // return ("BAD");
-        // return false;
-        console.log(two)//working here but not in the loop
+        return false;
+        // console.log(two)//working here but not in the loop
     }
 };
 

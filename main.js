@@ -67,7 +67,8 @@ function userguess(){
                         var test = letterFunc.check(userGuess,wordArray);
                         // console.log(test);
                         var inArray = arrayFunc.alreadyGuessed(userGuess,wrongGuess);
-                        console.log("inArray = "+inArray);
+                        // console.log('already guessed function is:');
+                        // console.log("inArray = "+inArray);
                         // console.log(wrongGuess)
                         
                              if (test){
@@ -92,6 +93,12 @@ function userguess(){
                                     else{
                                         // console.log(wrongGuess)
                                         count --;
+                                        if (count <= 0){
+                                            console.log("");
+                                            console.log("Ahh SNAP, you are out of tries! Let's Try again");
+                                            // this logic is correct, but I need to make an init file to clear the data. 
+                                            return;
+                                        }
                                         wrongGuess.push(userGuess);
                                         console.log("");
                                         console.log("BAD GUESS, Try again")
@@ -101,17 +108,7 @@ function userguess(){
                                         console.log(count + " Tries remaining.")
                                         userguess();
                                                     };
-                                                
-                            
-
-                            if (count <= 0){
-                                console.log("");
-                                console.log("Ahh SNAP, you are out of tries! Let's Try again");
-                                // this logic is correct, but I need to make an init file to clear the data. 
-                                return;
-                            }
-
-
+                               
                         })
 
 }/**end of userguess */
