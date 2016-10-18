@@ -18,6 +18,15 @@ function CorrectGuess(){
                     }
             }return blanks.join(""); 
             
+    },
+
+    this.alreadyGuessed = function(userGuess, Array){
+        for (var i = 0; i < Array; i++){
+            if (userGuess === Array[i]){
+                return true;
+            }
+        }
+        return false;
     }
 };
 

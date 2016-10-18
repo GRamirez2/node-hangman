@@ -26,12 +26,6 @@ var showBlanks;
 var wordArray = [];
 var wrongGuess = []
 
-// // constructor for gamedata
-// function GameData(wordToGuess, blanks, userGuess){
-//     this.word = wordToGuess;
-//     this.showBlanks = showBlanks;
-//     this.userGuess = userGuess 
-// };
 
 // function that runs game
 function startGame (){
@@ -72,44 +66,52 @@ function userguess(){
                         // console.log(userGuess);
                         var test = letterFunc.check(userGuess,wordArray);
                         // console.log(test);
+                        var inArray = arrayFunc.alreadyGuessed(userGuess,wrongGuess);
+                        console.log("inArray = "+inArray);
                              if (test){
                                     count --;
                                     showBlanks = arrayFunc.newBlanks(userGuess,blanks,wordArray); 
                                     // console.log(showBlanks)
                                     console.log(count + " Tries remaining.")
-                                 
-                                //  print new array to screen
-                                // check to see if they won
-                                // pring how many turns remaining
-                                // check to see if they have turn remaining
-                                userguess();
-                             }else{
-                                 count --;
-                                 wrongGuess.push(userGuess);
-                                 console.log("");
-                                 console.log("Try again")
-                                 console.log("");
-                                 console.log("Wrong guesses include: "+ wrongGuess)
-                                 console.log(count + " Tries remaining.")
-                                 userguess();
-                                }
-                                // if not print how many turn remaining
-                                // print a list of worng guesses
+                                
+                                    if (showBlanks === wordToGuess){
+                                        console.log("\n\nYOU WON! GOOD JOB")
+                                        console.log("The word was: "+wordToGuess)
+                                        console.log("\n\n")
+                                        return;
+                                    }
+                                    userguess();
+                             }
+                                    
+
+                             if(inArray){
+                                    console.log("\nYou already guessed that letter. Try again\n")
+                                    userguess();
+                                    }
+                                
+                                    else{
+                                        count --;
+                                        wrongGuess.push(userGuess);t
+                                        console.log("");
+                                        console.log("BAD GUESS, Try again")
+                                        console.log("");
+                                        console.log("Wrong guesses include: "+ wrongGuess)
+                                        console.log("");
+                                        console.log(count + " Tries remaining.")
+                                        userguess();
+                                                    };
+                                                
+                            
+
+                            if (count <= 0){
+                                console.log("");
+                                console.log("Ahh SNAP, you are out of tries! Let's Try again");
+                                // this logic is correct, but I need to make an init file to clear the data. 
+                                return;
+                            }
 
 
                         })
-
-                    // else {
-                    //     console.log("\n\nYOU LOST THIS GAME BECAUSE YOU ARE OUT OF TURNS. BETTER LUCK NEXT TIME")
-                    //     return;
-                    // }
-            
-            // if (count > 13){ 
-            // }else{
-            //     console.log("\nCareful, your selection was not a letter. That cost you a turn.\n")
-            //     count --;
-            //      userguess();
-            // }
 
 }/**end of userguess */
 
