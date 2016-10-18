@@ -27,7 +27,7 @@ function CorrectGuess(){
                 return true;
             }
         }
-        return false;
+        return two[i];
     }
 };
 
