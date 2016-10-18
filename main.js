@@ -82,16 +82,14 @@ function userguess(){
                                     }
                                     userguess();
                              }
-                                    
-
-                             if(inArray){
+                                else if (inArray){
                                     console.log("\nYou already guessed that letter. Try again\n")
                                     userguess();
                                     }
                                 
                                     else{
                                         count --;
-                                        wrongGuess.push(userGuess);t
+                                        wrongGuess.push(userGuess);
                                         console.log("");
                                         console.log("BAD GUESS, Try again")
                                         console.log("");
