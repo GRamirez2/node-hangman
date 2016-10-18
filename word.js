@@ -28,7 +28,9 @@ function CorrectGuess(){
             }
         }
         // return two[i];
-        return ("BAD");
+        // return ("BAD");
+        // return false;
+        console.log(two)//working here but not in the loop
     }
 };
 

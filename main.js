@@ -68,6 +68,7 @@ function userguess(){
                         // console.log(test);
                         var inArray = arrayFunc.alreadyGuessed(userGuess,wrongGuess);
                         console.log("inArray = "+inArray);
+                        // console.log(wrongGuess)
                         
                              if (test){
                                     count --;
