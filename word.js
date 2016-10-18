@@ -20,9 +20,10 @@ function CorrectGuess(){
             
     },
 
-    this.alreadyGuessed = function(userGuess, Array){
-        for (var i = 0; i < Array; i++){
-            if (userGuess === Array[i]){
+    this.alreadyGuessed = function(userGuess, two){
+        for (var i = 0; i < two; i++){
+            if (userGuess === two[i]){
+                
                 return true;
             }
         }

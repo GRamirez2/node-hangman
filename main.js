@@ -68,6 +68,7 @@ function userguess(){
                         // console.log(test);
                         var inArray = arrayFunc.alreadyGuessed(userGuess,wrongGuess);
                         console.log("inArray = "+inArray);
+                        
                              if (test){
                                     count --;
                                     showBlanks = arrayFunc.newBlanks(userGuess,blanks,wordArray); 
@@ -88,6 +89,7 @@ function userguess(){
                                     }
                                 
                                     else{
+                                        // console.log(wrongGuess)
                                         count --;
                                         wrongGuess.push(userGuess);
                                         console.log("");
