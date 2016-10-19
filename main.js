@@ -112,6 +112,7 @@ function userguess(){
                         })
 
 }/**end of userguess */
+// need to add the function to clear the data
 
 
 startGame();
