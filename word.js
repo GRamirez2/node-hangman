@@ -12,7 +12,8 @@ function CorrectGuess(){
             for (var i = 0; i < wordArray.length; i++) {
                 
                     if(userGuess === wordArray[i]){
-                       blanks.splice(i,1,userGuess)
+                       blanks[i] = userGuess;
+                    //    blanks.splice(i,1,userGuess)//this works fine, but the line above is easier to follow
                     //    console.log(blanks.join(""));
                     
                     }
@@ -27,10 +28,7 @@ function CorrectGuess(){
                 return true;
             }
         }
-        // return two[i];
-        // return ("BAD");
         return false;
-        // console.log(two)//working here but not in the loop
     }
 };
 

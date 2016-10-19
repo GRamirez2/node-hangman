@@ -67,36 +67,43 @@ function userguess(){
                         var test = letterFunc.check(userGuess,wordArray);
                         // console.log(test);
                         var inArray = arrayFunc.alreadyGuessed(userGuess,wrongGuess);
+                        var correctDouble = arrayFunc.alreadyGuessed(userGuess,showBlanks);//not sure this will loop through a string
                         // console.log('already guessed function is:');
                         // console.log("inArray = "+inArray);
                         // console.log(wrongGuess)
-                        
+                            
+
                              if (test){
-                                    count --;
-                                    showBlanks = arrayFunc.newBlanks(userGuess,blanks,wordArray); 
-                                    // console.log(showBlanks)
-                                    console.log(count + " Tries remaining.")
-                                
-                                    if (showBlanks === wordToGuess){
+                                    
+                                if (correctDouble){
+                                        console.log("\nYou already guessed that letter. Try again\n")
+                                        // userguess();
+                                        }
+                                        else{
+                                            count --;
+                                            showBlanks = arrayFunc.newBlanks(userGuess,blanks,wordArray); 
+                                            // console.log(showBlanks)
+                                            console.log(count + " Good Guess, you have tries remaining.")
+                                        }
+                                if (showBlanks === wordToGuess){
                                         console.log("\n\nYOU WON! GOOD JOB")
                                         console.log("The word was: "+wordToGuess)
                                         console.log("\n\n")
                                         return;
-                                    }
-                                    userguess();
+                                        }
+                                userguess();
                              }
+                             
                                 else if (inArray){
                                     console.log("\nYou already guessed that letter. Try again\n")
                                     userguess();
                                     }
                                 
                                     else{
-                                        // console.log(wrongGuess)
                                         count --;
                                         if (count <= 0){
                                             console.log("");
-                                            console.log("Ahh SNAP, you are out of tries! Let's Try again");
-                                            // this logic is correct, but I need to make an init file to clear the data. 
+                                            console.log("Ahh SNAP, you are out of tries! Better luck next time"); 
                                             return;
                                         }
                                         wrongGuess.push(userGuess);
@@ -112,7 +119,7 @@ function userguess(){
                         })
 
 }/**end of userguess */
-// need to add the function to clear the data
+// need to add the function to clear the data if I want to start the game over
 
 
 startGame();
