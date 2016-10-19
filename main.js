@@ -34,7 +34,7 @@ function startGame (){
     console.log('\n***** Hello and welcome to HANGMAN 10.16.GR, today is '+time+' *****\n\nThe words you will be trying to guess in this game are under the topic:\n\n"NAMES AND NICKNAMES FOR A RUSTIC OR COUNTRIFIED PERSON"\n(from the Dictionary of American Regional English)\n');
     // Print blanks on screen
     wordToGuess = game.wordList.wordChoice();
-    console.log(wordToGuess)
+    // console.log(wordToGuess)
     wordLength = wordToGuess.length
     // console.log(wordLength);
     // console.log('The word you are trying to guess has '+wordLength+' letters. Good Luck!')
@@ -83,7 +83,7 @@ function userguess(){
                                             count --;
                                             showBlanks = arrayFunc.newBlanks(userGuess,blanks,wordArray); 
                                             // console.log(showBlanks)
-                                            console.log(count + " Good Guess, you have tries remaining.")
+                                            console.log("Good Guess! You have "+count+" tries remaining.")
                                         }
                                 if (showBlanks === wordToGuess){
                                         console.log("\n\nYOU WON! GOOD JOB")
